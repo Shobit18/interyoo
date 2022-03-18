@@ -21,8 +21,7 @@
                     <textarea class="w-full border-4 mx-64 py-10 m-2 " placeholder="Add Ans "></textarea>
                 </div>
             </div>
-            </div>   
-                       
+        </div>                       
     </div>  
 
     <div class="w-full border-2 ">
@@ -43,7 +42,7 @@
 </div>
 </template>
 
-<script setup lang="ts">
+<script>
 
 </script>
 

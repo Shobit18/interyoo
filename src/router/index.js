@@ -9,6 +9,7 @@ import ToInvited from '../views/ToInvited.vue'
 import ToEvalute from '../views/ToEvalute.vue'
 import ToPreselected from '../views/ToPreselected.vue'
 import ToDiscard from '../views/ToDiscard.vue'
+import PositionDelete from '../views/PositionDelete.vue'
 
 
 const router = createRouter({
@@ -58,7 +59,13 @@ const router = createRouter({
       path: '/ToDiscard',
       name: 'ToDiscard',
      component: ToDiscard
-    }
+    },
+    {
+      path: '/PositionDelete',
+      name: 'PositionDelete',
+     component: PositionDelete
+    },
+    
   ]
 })
 

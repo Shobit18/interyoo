@@ -10,14 +10,14 @@
       <h3 class="mx-4 item-center font-bold ">Vue.js Developer </h3>
       <div class="flex justify-between ">
       <div class="flex space-x-3 mr-3">
-          <a class="border-2 m-3">invited 2</a>
-          <a class="border-2 m-3">To evalute 0</a>
-          <a class="border-2 m-3">Preselected 0</a>
-          <a class="border-2 m-3">Discard 0</a>
+          <RouterLink to="/ToInvited" class="border-2 m-3">invited 2</RouterLink>
+          <RouterLink to="./ToEvalute" class="border-2 m-3">To evalute 0</RouterLink>
+          <RouterLink to="./ToPreselected" class="border-2 m-3">Preselected 0</RouterLink>
+          <RouterLink to="./ToDiscard" class="border-2 m-3">Discard 0</RouterLink>
       </div>
       <div class="flex space-x-3 mr-3">
-        <div class="rounded-sm">Open Position</div>
-        <a class="">Delete</a>  
+        <div class="rounded-sm">Open Position</div> 
+        <RouterLink to="./PositionDelete">Delete</RouterLink>
         </div>  
     </div>
     </div>

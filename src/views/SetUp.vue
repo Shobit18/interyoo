@@ -18,7 +18,7 @@
     <div class="flex">
         <div class="border-2 w-full h-1/4 m-1 mr-4 hover:bg-blue-200  flex ">
         
-                <img class=" w-32 h-32 m-3" src="../assets/img .jpg" alt="Sunset in the mountains">
+                <img class=" w-32 h-32 m-3" src="../assets/img.jpg" alt="Sunset in the mountains">
             <div class=" justify-between w-full flex space-x-6">
                     <div class="mx-3">
                         <div class="font-bold text-xl mb-2">Video Interview</div>
@@ -66,15 +66,15 @@
             <div class="mr-3">
                 <button class="rounded-full border-8 border-solid">Edit template</button>
             </div>  
-       </div>  
+       </div>
 
-        <div class="">
-         <div class="justify-between">   
-            <div class="flex mx-4">
 
-            <div class="flex">
-                    <label>Send</label>
-            <div class="flex mx-4">
+
+    <div class="">
+        <div class="flex mx-4 m-3 justify-between">
+            <div class="flex ">
+                <label>Send</label>
+            <div class="flex mx-4 ">
                     <select>
                         <option>Email</option>
                         <option>SMS</option>
@@ -96,86 +96,95 @@
                         <option>Interview Completed</option>
                     </select>
                 </div>
-            <div>
-                <button>Edit</button>
-            </div>
-            </div>     
-            </div>   
+            </div>  
+                <div class="space-x-2">
+                    <button class="rounded-full border-2 border-solid">Edit</button>
+                    <button class="rounded-full border-2 border-solid">Delete</button>
+                </div>          
+        </div>
+
+        <div class="flex mx-4 m-3 justify-between">
+            <div class="flex ">
+                <label>Send</label>
+            <div class="flex mx-4 ">
+                    <select>
+                        <option>Email</option>
+                        <option>SMS</option>
+                        <option>WhatsApp</option>
+                    </select>
+                </div>
+                <div class="mx-4">
+                    <select>
+                        <option>EN Invitation</option>
+                        <option>Completed</option>
+                        <option>Reminder</option>
+                    </select>
+                </div>
+
+                <div class="mx-4">
+                    <select>
+                        <option>On Invitation</option>
+                        <option>No response in 1h</option>
+                        <option>Interview Completed</option>
+                    </select>
+                </div>
+            </div>  
+                <div class="space-x-2">
+                    <button class="rounded-full border-2 border-solid">Edit</button>
+                    <button class="rounded-full border-2 border-solid">Delete</button>
+                </div>          
+        </div>
+
+        <div class="flex mx-4 m-3 justify-between">
+            <div class="flex ">
+                <label>Send</label>
+            <div class="flex mx-4 ">
+                    <select>
+                        <option>Email</option>
+                        <option>SMS</option>
+                        <option>WhatsApp</option>
+                    </select>
+                </div>
+                <div class="mx-4">
+                    <select>
+                        <option>EN Invitation</option>
+                        <option>Completed</option>
+                        <option>Reminder</option>
+                    </select>
+                </div>
+
+                <div class="mx-4">
+                    <select>
+                        <option>On Invitation</option>
+                        <option>No response in 1h</option>
+                        <option>Interview Completed</option>
+                    </select>
+                </div>
+            </div>  
+                <div class="space-x-2">
+                    <button class="rounded-full border-2 border-solid">Edit</button>
+                    <button class="rounded-full border-2 border-solid">Delete</button>
+                </div>          
+        </div>
+    </div>
+    <div>
+
+
+    </div>
         <div>
-            
+
+        <div class="text-white">
+            <button class="rounded-full bg-black m-4"> + Add message</button>   
         </div> 
-               
         </div>
-        </div>
+    </div>                             
+</div>  
 
-        <div>
-            <div class="flex mx-4 m-3">
-            <label>Send</label>
-           <div class="flex mx-4">
-                <div>
-                <select>
-                    <option>Email</option>
-                    <option>SMS</option>
-                    <option>WhatsApp</option>
-                </select>
-            </div>
-            <div class="mx-4">
-                <select>
-                    <option>EN Invitation</option>
-                    <option>Completed</option>
-                    <option>Reminder</option>
-                </select>
-            </div>
-
-            <div class="mx-4">
-                <select>
-                    <option>On Invitation</option>
-                    <option>No response in 1h</option>
-                    <option>Interview Completed</option>
-                </select>
-            </div>
-               
-            </div> 
-            
-            
-        </div>
-        </div>  
-
-        <div>
-            <div class="flex mx-4 m-3">
-            <label>Send</label>
-           <div class="flex mx-4">
-                <div>
-                <select>
-                    <option>Email</option>
-                    <option>SMS</option>
-                    <option>WhatsApp</option>
-                </select>
-            </div>
-            <div class="mx-4">
-                <select>
-                    <option>EN Invitation</option>
-                    <option>Completed</option>
-                    <option>Reminder</option>
-                </select>
-            </div>
-
-            <div class="mx-4">
-                <select>
-                    <option>On Invitation</option>
-                    <option>No response in 1h</option>
-                    <option>Interview Completed</option>
-                </select>
-            </div>
-               
-            </div> 
-            
-            
-        </div>
-        </div>
-        </div>                             
-    </div>  
-    <button class="rounded-full border-8  bg-blue-200 border-solid">Add Messsage</button>
+<div class="flex justify-between">
+    <button class="rounded-full bg-blue-200 m-4">Save</button>
+    <button class="rounded-full bg-blue-200 m-4">Invite Candidate</button>
+</div>
+    
 </div>
 </template>
 

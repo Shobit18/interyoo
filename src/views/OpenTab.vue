@@ -20,7 +20,7 @@
       <div class="flex space-x-3 mr-3">
         <a class="">Setting</a>
         <a class="">Copy</a>
-        <a class="">Delete</a>  
+        <RouterLink to="./PositionDelete" class="">Delete</RouterLink>  
         </div>  
     </div>
     </div>
