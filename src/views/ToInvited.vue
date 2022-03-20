@@ -30,21 +30,21 @@
           <div class="flex space-x-2 m-4 mx-48 ">
               <div>
                 <label>Full name</label> <br>
-              <input type="text" v-model="name" class="border-4 rounded-md" />
+              <input v-model="name" class="border-4 rounded-md" />
               </div>
              <div>
                 <label>Email</label><br>
-              <input type="email" v-model="email" class="border-4 rounded-md" />
+              <input v-model="email" class="border-4 rounded-md" />
              </div>
 
               <div class="" >
                 <label>Prefix</label><br>
-              <input type="text" placeholder="+" class="border-4 rounded-md" />
+              <input v-model="prefix" class="border-4 rounded-md" />
              </div>
 
               <div>
                 <label>Phone</label><br>
-              <input type="number" v-model="number" class="border-4 rounded-md" />
+              <input v-model="phone" class="border-4 rounded-md" />
              </div>
           </div>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-4 rounded-full">
@@ -57,7 +57,19 @@
 
 <script>
 export default {
-    name: 'ToInivte'
+    name: 'ToInivte',
+    data() {
+      return {
+         name:  'name',
+         email: 'Your email',
+         prefix: '+',
+         phone:  'Register Mo. Number '
+
+      }
+    },
+    methods: {
+      onClick
+    }
 
 }
 </script>

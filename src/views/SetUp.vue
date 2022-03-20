@@ -6,8 +6,8 @@
 
 <div class="flex justify-between py-6">
     <div class="flex space-x-3 m-1">
-          <div class="mx-3">All Team</div>
-          <div class="mx-3">Public Link: Disabled</div>
+          <div class="mx-3 hover:border-2 ">All Team</div>
+          <div class="mx-3 hover:border-2">Public Link: Disabled</div>
       </div>
 
     <div class="flex mr-4">
@@ -18,13 +18,13 @@
     <div class="flex">
         <div class="border-2 w-full h-1/4 m-1 mr-4 hover:bg-blue-200  flex ">
         
-                <img class=" w-32 h-32 m-3" src="../assets/img.jpg" alt="Sunset in the mountains">
+                <img class=" w-32 h-32 m-3" v-bind:src ="img" :alt="desc">
             <div class=" justify-between w-full flex space-x-6">
                     <div class="mx-3">
                         <div class="font-bold text-xl mb-2">Video Interview</div>
                         <h3>With 2 questions</h3>
                         <div class="space-x-3 py-3">
-                            <button class="rounded-full border-8 border-solid">Edit</button>
+                            <button class="rounded-full border-8 border-solid"><font-awesome-icon icon="fa-solid fa-pen-to-square" />Edit</button>
                             <button class="rounded-full border-8 border-solid">Preview</button>
                         </div>
                     </div>  
@@ -64,14 +64,14 @@
       <div class="flex justify-between w-full">        
             <h1 class="font-bold text-xl mx-3">Candidate Notifications</h1> 
             <div class="mr-3">
-                <button class="rounded-full border-8 border-solid">Edit template</button>
+                <button class="rounded-full border-8 border-solid"> Edit template</button>
             </div>  
        </div>
 
 
 
     <div class="">
-        <div class="flex mx-4 m-3 justify-between">
+        <div   class="flex mx-4 m-3 justify-between">
             <div class="flex ">
                 <label>Send</label>
             <div class="flex mx-4 ">
@@ -103,7 +103,7 @@
                 </div>          
         </div>
 
-        <div class="flex mx-4 m-3 justify-between">
+        <div v-if="isVisible" class="flex mx-4 m-3 justify-between">
             <div class="flex ">
                 <label>Send</label>
             <div class="flex mx-4 ">
@@ -135,7 +135,7 @@
                 </div>          
         </div>
 
-        <div class="flex mx-4 m-3 justify-between">
+        <!-- <div v-if="isVisible" class="flex mx-4 m-3 justify-between">
             <div class="flex ">
                 <label>Send</label>
             <div class="flex mx-4 ">
@@ -165,7 +165,7 @@
                     <button class="rounded-full border-2 border-solid">Edit</button>
                     <button class="rounded-full border-2 border-solid">Delete</button>
                 </div>          
-        </div>
+        </div> -->
     </div>
     <div>
 
@@ -174,7 +174,7 @@
         <div>
 
         <div class="text-white">
-            <button class="rounded-full bg-black m-4"> + Add message</button>   
+            <button class="rounded-full bg-black m-4" @click="isVisible = true"> + Add message</button>   
         </div> 
         </div>
     </div>                             
@@ -182,13 +182,27 @@
 
 <div class="flex justify-between">
     <button class="rounded-full bg-blue-200 m-4">Save</button>
-    <button class="rounded-full bg-blue-200 m-4">Invite Candidate</button>
+    <RouterLink to="/invite" class="rounded-full bg-blue-200 m-4">Invite Candidate</RouterLink>
 </div>
     
 </div>
 </template>
 
-<script setup lang="ts">
+<script>
+export default {
+    data() {
+        return {
+            img: "https://picsum.photos/200/300",
+            desc:"Sunset in the mountains",
+            isVisible: false
+        }
+    },
+    methods: {
+        toggleBox() {
+            this.isVisible = !this.isVisible
+        }
+    }
+}
 
 </script>
 

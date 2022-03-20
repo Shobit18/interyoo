@@ -22,8 +22,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
         
       
       <div class=" flex w-2/6 ">
-          <button class="bg-blue-200 item-end  font-bold inset-0 py-2 px-2 mr-4 rounded  ">Login</button>
-           <button class="bg-blue-200 item-end font-bold inset-0 py-2 px-2 mr-4 rounded  ">Acount</button>
+          <RouterLink to="/LogIn" class="bg-blue-200 item-end  font-bold inset-0 py-2 px-2 mr-4 rounded  ">Login</RouterLink>
+           <RouterLink to="/SignUp" class="bg-blue-200 item-end font-bold inset-0 py-2 px-2 mr-4 rounded  ">Acount</RouterLink>
         </div>
         
       </nav>  

@@ -12,7 +12,7 @@
     <div class="flex">
         <div class="border-2 w-full h-1/4 m-1 mr-4 hover:bg-blue-200  flex ">
         
-            <img class=" w-32 h-32 m-3" src="https://picsum.photos/200/300" alt="Sunset in the mountains">
+            <img class=" w-32 h-32 m-3" v-bind:src="img"  alt="Sunset in the mountains">
             <div>
                 <div>
                     <textarea class="w-full border-4 mx-64 py-2 m-4" placeholder="Add question"></textarea>
@@ -43,7 +43,19 @@
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+            img: "https://picsum.photos/200/300",
 
+        }
+    },
+    methods: {
+        onClick() {
+            
+        }
+    }
+}
 </script>
 
 <style scoped>

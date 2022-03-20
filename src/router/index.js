@@ -10,6 +10,8 @@ import ToEvalute from '../views/ToEvalute.vue'
 import ToPreselected from '../views/ToPreselected.vue'
 import ToDiscard from '../views/ToDiscard.vue'
 import PositionDelete from '../views/PositionDelete.vue'
+import LogIn from '../views/LogIn.vue'
+import SignUp from '../views/SignUp.vue'
 
 
 const router = createRouter({
@@ -64,6 +66,21 @@ const router = createRouter({
       path: '/PositionDelete',
       name: 'PositionDelete',
      component: PositionDelete
+    },
+    {
+      path: '/PositionDelete',
+      name: 'PositionDelete',
+     component: PositionDelete
+    },
+    {
+      path: '/LogIn',
+      name: 'LogIn',
+     component: LogIn
+    },
+    {
+      path: '/SignUp',
+      name: 'SignUp',
+     component: SignUp
     },
     
   ]
