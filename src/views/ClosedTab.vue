@@ -8,14 +8,14 @@
       <a class="flex bg-black mx-2 text-white text-slate-500 hover:bg-blue-600 rounded"><router-link to ="./ClosedTab.vue">Close</router-link></a>
     </div> -->
 
-    <div class="border-2 mx-20 py-4 hover:bg-blue-200 rounded  m-4">
+    <div class="border-2 mx-20 py-4 bg-white hover:bg-blue-200 rounded-3xl  m-4">
       <h3 class="mx-4 item-center font-bold ">Vue.js Developer </h3>
       <div class="flex justify-between ">
       <div class="flex space-x-3 mr-3">
-          <RouterLink to="/ToInvited" class="border-2 m-3">invited 2</RouterLink>
-          <RouterLink to="./ToEvalute" class="border-2 m-3">To evalute 0</RouterLink>
-          <RouterLink to="./ToPreselected" class="border-2 m-3">Preselected 0</RouterLink>
-          <RouterLink to="./ToDiscard" class="border-2 m-3">Discard 0</RouterLink>
+          <RouterLink to="/ToInvited" class="border-2 m-3 bg-slate-100 rounded-md">invited 2</RouterLink>
+          <RouterLink to="./ToEvalute" class="border-2 m-3 bg-slate-100 rounded-md">To evalute 0</RouterLink>
+          <RouterLink to="./ToPreselected" class="border-2 m-3 bg-slate-100 rounded-md">Preselected 0</RouterLink>
+          <RouterLink to="./ToDiscard" class="border-2 m-3 bg-slate-100 rounded-md">Discard 0</RouterLink>
       </div>
       <div class="flex space-x-3 mr-3">
         <div class="rounded-sm">Open Position</div> 

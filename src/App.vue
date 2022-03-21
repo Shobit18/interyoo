@@ -3,9 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
-<template>
+<template >
 <div>
-        <nav class=" bg-white shadow-lg mx-3 flex space-x-10 text-center py-3 ">
+        <nav class=" bg-white w-full shadow-lg  flex space-x-10 text-center py-3 ">
           <div class=" flex ">
               <!-- Website Logo -->
               <a href="#" class="flex items-center  py-2 ml-10 w-1/6">
@@ -19,7 +19,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
                     <RouterLink to="/AddQuestion">AddQuestion</RouterLink>
                     <RouterLink to="/ToInvited">ToInvited</RouterLink>
             </div>   
-        
+    
       
       <div class=" flex w-2/6 ">
           <RouterLink to="/LogIn" class="bg-blue-200 item-end  font-bold inset-0 py-2 px-2 mr-4 rounded  ">Login</RouterLink>

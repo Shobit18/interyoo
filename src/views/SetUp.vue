@@ -1,24 +1,24 @@
 <template>
-  <div>
-      <div class="py-3 m-4">
-        <input type = "text" v-model="title" placeholder="(Write here the job title)">
+  <div class="items-center mx-48">
+      <div class="py-3 m-4 ">
+        <input type = "text" class="w-full bg-slate-200 hover:border-4 border-solid rounded-md" v-model="title" placeholder="(Write here the job title)">
       </div>
 
 <div class="flex justify-between py-6">
     <div class="flex space-x-3 m-1">
-          <div class="mx-3 hover:border-2 ">All Team</div>
-          <div class="mx-3 hover:border-2">Public Link: Disabled</div>
+          <div class="mx-3 hover:border-4 border-solid rounded-md">All Team</div>
+          <div class="mx-3 hover:border-4 border-solid rounded-md">Public Link: Disabled</div>
       </div>
 
     <div class="flex mr-4">
-        <div class="">Internal Notification</div>
+        <div class= "hover:border-4 border-solid rounded-md">Internal Notification</div>
     </div>
 </div>
 
     <div class="flex">
-        <div class="border-2 w-full h-1/4 m-1 mr-4 hover:bg-blue-200  flex ">
+        <div class="border-2 w-full h-1/4 m-1 mr-4 bg-white hover:bg-blue-200  flex  rounded-3xl">
         
-                <img class=" w-32 h-32 m-3" v-bind:src ="img" :alt="desc">
+                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src ="img" :alt="desc">
             <div class=" justify-between w-full flex space-x-6">
                     <div class="mx-3">
                         <div class="font-bold text-xl mb-2">Video Interview</div>
@@ -29,8 +29,8 @@
                         </div>
                     </div>  
 
-                <div class=" m-3">
-                    <div class="flex py-2 justify-end">
+                <div class=" m-3 rounded-sm">
+                    <div class="flex py-2 justify-end ">
                         <labal>CANDIDATE THINKING TIME</labal>
                         <select class="h-6 mx-2 mr-2 ">
                             <option>2 minutes</option>
@@ -60,7 +60,7 @@
     </div>  
 
 <div class="flex py-4">
-    <div class="border-2 w-full h-1/4 m-1 mr-4 hover:bg-blue-200">
+    <div class="border-2 w-full h-1/4 m-1 mr-4 bg-white hover:bg-blue-200 rounded-3xl">
       <div class="flex justify-between w-full">        
             <h1 class="font-bold text-xl mx-3">Candidate Notifications</h1> 
             <div class="mr-3">
