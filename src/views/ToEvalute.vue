@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class=" justify-between flex w-full">
     <div class="space-x-6 m-4 border-solid border-2 w-100 ">
           <RouterLink to="/ToInvited" class="border-2 m-3">invited 2</RouterLink>
@@ -12,15 +13,16 @@
   </div>
 
  </div>  
- <div>
-    <div class="text-3xl font-bold text-center">Candidate Evolated</div>
+  <div> 
+    <div class="text-3xl font-bold text-center">Candidate Evalute</div>
  </div>
+</div>
+</template> 
 
-</template>
 
 <script>
 export default {
-    name: 'ToEvalute'
+    name: 'ToPreselected'
 
 }
 </script>

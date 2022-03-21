@@ -1,7 +1,7 @@
 <template>
   <div>
-      <div class="py-3">
-        <input type = "text" placeholder="(Write here the Job title)">
+      <div class="py-3 m-4">
+        <input type = "text" v-model="title" placeholder="(Write here the job title)">
       </div>
 
 <div class="flex justify-between py-6">
@@ -24,7 +24,7 @@
                         <div class="font-bold text-xl mb-2">Video Interview</div>
                         <h3>With 2 questions</h3>
                         <div class="space-x-3 py-3">
-                            <button class="rounded-full border-8 border-solid"><font-awesome-icon icon="fa-solid fa-pen-to-square" />Edit</button>
+                            <button class="rounded-full border-8 border-solid">Edit</button>
                             <button class="rounded-full border-8 border-solid">Preview</button>
                         </div>
                     </div>  
@@ -135,37 +135,7 @@
                 </div>          
         </div>
 
-        <!-- <div v-if="isVisible" class="flex mx-4 m-3 justify-between">
-            <div class="flex ">
-                <label>Send</label>
-            <div class="flex mx-4 ">
-                    <select>
-                        <option>Email</option>
-                        <option>SMS</option>
-                        <option>WhatsApp</option>
-                    </select>
-                </div>
-                <div class="mx-4">
-                    <select>
-                        <option>EN Invitation</option>
-                        <option>Completed</option>
-                        <option>Reminder</option>
-                    </select>
-                </div>
 
-                <div class="mx-4">
-                    <select>
-                        <option>On Invitation</option>
-                        <option>No response in 1h</option>
-                        <option>Interview Completed</option>
-                    </select>
-                </div>
-            </div>  
-                <div class="space-x-2">
-                    <button class="rounded-full border-2 border-solid">Edit</button>
-                    <button class="rounded-full border-2 border-solid">Delete</button>
-                </div>          
-        </div> -->
     </div>
     <div>
 
@@ -194,7 +164,9 @@ export default {
         return {
             img: "https://picsum.photos/200/300",
             desc:"Sunset in the mountains",
-            isVisible: false
+            isVisible: false,
+            title: '',
+            
         }
     },
     methods: {

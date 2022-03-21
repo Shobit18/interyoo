@@ -60,16 +60,16 @@ export default {
     name: 'ToInivte',
     data() {
       return {
-         name:  'name',
-         email: 'Your email',
+         name:  '',
+         email: '',
          prefix: '+',
-         phone:  'Register Mo. Number '
+         phone:  ' '
 
       }
     },
-    methods: {
-      onClick
-    }
+    // methods: {
+    //   onClick
+    // }
 
 }
 </script>

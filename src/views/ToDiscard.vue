@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class=" justify-between flex w-full">
     <div class="space-x-6 m-4 border-solid border-2 w-100 ">
           <!-- <button class=" hover:bg-sky-700 rounded-sm">Invited</button>
@@ -14,11 +15,12 @@
           <input type="text" placeholder="search" class="border-2 rounded-md"/>
           <button class="border-2 rounded-md mx-2">+</button>
   </div>
-
- </div>  
+</div>
  <div>
     <div class="text-3xl font-bold text-center">Candidate Discard</div>
  </div>
+
+ </div>  
 
 </template>
 

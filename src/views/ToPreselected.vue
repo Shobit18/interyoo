@@ -1,8 +1,9 @@
 <template>
+<div>
 <div class=" justify-between flex w-full">
     <div class="space-x-6 m-4 border-solid border-2 w-100 ">
           <RouterLink to="/ToInvited" class="border-2 m-3">invited 2</RouterLink>
-          <RouterLink to="./ToEvalute" class="border-2 m-3 ">To evalute 0</RouterLink>
+          <RouterLink to="./ToEvalute" class="border-2 m-3">To evalute 0</RouterLink>
           <RouterLink to="./ToPreselected" class="border-2 m-3 bg-sky-600 hover:bg-sky-700 rounded-sm">Preselected 0</RouterLink>
           <RouterLink to="./ToDiscard" class="border-2 m-3  ">Discard 0</RouterLink>
     </div>
@@ -12,15 +13,16 @@
   </div>
 
  </div>  
- <div>
-    <div class="text-3xl font-bold text-center">Candidate Preselectd</div>
+  <div> 
+    <div class="text-3xl font-bold text-center">Candidate Preselected</div>
  </div>
+</div>
+</template> 
 
-</template>
 
 <script>
 export default {
-    name: 'ToEvalute'
+    name: 'ToPreselected'
 
 }
 </script>
