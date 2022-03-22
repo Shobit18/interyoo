@@ -44,7 +44,7 @@ export default {
         evalute: 'evalute',
         preselect: 'preselected',
         discard: 'discard',
-        copy: 'Copy',
+        copy:  'Copy',
         setting: 'Setting',
         deleted: 'Delete'      
     }
@@ -62,8 +62,8 @@ export default {
   const obj = new Array();
   obj.push(myObject);
   // obj.push(myObject1);
-  console.log(obj)
-  console.log(obj)
+  // console.log(obj)
+  // console.log(obj)
     return {
       obj
     }

@@ -27,7 +27,8 @@
           <div class=" m-4 text-center ">
               <h1 class="text-white hover:text-black">You cant invite Candidate until your email validation</h1>
           </div>
-          <div class="flex space-x-2 m-4 mx-48 ">
+          <div class=" space-x-2 m-4  ">
+            <div class="flex mx-4 space-x-4 ">
               <div>
                 <label>Full name</label> <br>
               <input v-model="name" class="border-4 rounded-md" />
@@ -36,7 +37,10 @@
                 <label>Email</label><br>
               <input v-model="email" class="border-4 rounded-md" />
              </div>
+            </div>
 
+            <div class="flex mx-4 items-center space-x-4 ">
+              
               <div class="" >
                 <label>Prefix</label><br>
               <input v-model="prefix" class="border-4 rounded-md" />
@@ -46,6 +50,7 @@
                 <label>Phone</label><br>
               <input v-model="phone" class="border-4 rounded-md" />
              </div>
+          </div>
           </div>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-4 rounded-full">
             Invite Candidate

@@ -1,5 +1,6 @@
 <template>
   <div class="items-center mx-48">
+ 
       <div class="py-3 m-4 ">
         <input type = "text" class="w-full bg-slate-200 hover:border-4 border-solid rounded-md" v-model="title" placeholder="(Write here the job title)">
       </div>
@@ -32,26 +33,26 @@
                 <div class=" m-3 rounded-sm">
                     <div class="flex py-2 justify-end ">
                         <labal>CANDIDATE THINKING TIME</labal>
-                        <select class="h-6 mx-2 mr-2 ">
+                        <select class="h-6 mx-2 mr-2 w-30 rounded-md">
                             <option>2 minutes</option>
                             <option>3 minutes</option>
                             <option>5 minutes</option>
                         </select>
                     </div>    
                         <div class="flex py-2 justify-end">
-                            <label>BRANDING COLOR AND LOGO</label>
-                            <select class="h-6 mx-2 ">
+                            <label class="">BRANDING COLOR AND LOGO</label>
+                            <select class="h-6 mx-2 w-24 rounded-md">
                                 <option>No theme</option>
                                 <option> create theme</option> 
                             </select>
                         </div>   
                         <div class="flex py-2 justify-end">
                             <label>QUESTION AND RETAKE</label>
-                            <select class="h-6 mx-2">
+                            <select class="h-6 mx-2 w-30 rounded-md">
                                 <option>1 takes</option>
                                 <option>2 takes</option>
                                 <option>3 takes</option>
-                                <option>unlimitade</option>
+                                <option>unlimited</option>
                             </select>
                         </div>  
                     </div>      
@@ -151,8 +152,8 @@
 </div>  
 
 <div class="flex justify-between">
-    <button class="rounded-full bg-blue-200 m-4">Save</button>
-    <RouterLink to="/invite" class="rounded-full bg-blue-200 m-4">Invite Candidate</RouterLink>
+    <button class="rounded-full bg-blue-200 m-4" @click="Submit">Save</button>
+    <RouterLink to="/ToInvited" class="rounded-full bg-blue-200 m-4">Invite Candidate</RouterLink>
 </div>
     
 </div>
@@ -172,7 +173,9 @@ export default {
     methods: {
         toggleBox() {
             this.isVisible = !this.isVisible
-        }
+        },
+        Submit() {
+            console.log('Submit form')        }
     }
 }
 
