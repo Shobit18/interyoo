@@ -13,6 +13,7 @@
       <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click="onClick">{{addPosition}}</RouterLink>
     </div>
 
+
    <!-- <component :is="activeTab" /> -->
 <OpenTab v-if="activeTab === 'OpenTab'" />
 <!-- <OpenTab v-if="activeTab === 'OpenTab'" /> -->
@@ -23,6 +24,7 @@
 </template>
 
 <script >
+import { reactive } from 'vue'
 import OpenTab from "./OpenTab.vue";
 import ClosedTab from "./ClosedTab.vue";
 
@@ -62,8 +64,16 @@ methods: {
     this.changeColor = !this.changeColor
   },
   onClick() {
-        const obj = new Array();
-  obj.push(myObject);
+   const myArray = reactive([
+     {id: 1, title: 'vueJS developer'},
+     {id: 2, invited: 'invited'}
+   ])
+console.log(myArray)
+   return {
+     myArray
+        
+   }
+
   }
 },
 
