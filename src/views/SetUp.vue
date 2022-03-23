@@ -1,10 +1,11 @@
 <template>
   <div class="items-center mx-48">
- 
+    
+    <form>
       <div class="py-3 m-4 ">
-        <input type = "text" class="w-full bg-slate-200 hover:border-4 border-solid rounded-md" v-model="title" placeholder="(Write here the job title)">
+        <input type = "text" value="(Write your Job title)"   class="w-full bg-slate-200 hover:border-4 border-solid rounded-md"  >
       </div>
-
+    </form>
 <div class="flex justify-between py-6">
     <div class="flex space-x-3 m-1">
           <div class="mx-3 hover:border-4 border-solid rounded-md">All Team</div>
@@ -162,20 +163,43 @@
 <script>
 export default {
     data() {
+        
         return {
-            img: "https://picsum.photos/200/300",
-            desc:"Sunset in the mountains",
+            invite: '',    
             isVisible: false,
             title: '',
+            value: '(Write Job title here)',
+            datas: [
+               { img: "https://picsum.photos/200/300"},
+               { desc:"Sunset in the mountains"},
+
+            
+               
+                
+            ],
+            setups: [
+                {title: 'Vue JS'}
+            ]
+            
             
         }
     },
+    
     methods: {
         toggleBox() {
             this.isVisible = !this.isVisible
         },
+        
         Submit() {
-            console.log('Submit form')        }
+            const items = []
+            const obj = {};
+            obj.invite = invite,
+            obj.evolate = evolate
+            items.push(obj);
+     },
+     show() {
+         console.log(items)
+     }
     }
 }
 
