@@ -65,3 +65,51 @@ function createNewPosition() {
       <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click="createNewPosition">{{addPosition}}</RouterLink>
       <!-- <button @click="createNewPosition" class="mx-20 rounded-full">add</button> -->
     </div>
+
+
+
+
+     // addPosition = 'Add Position',      
+      const  myArr = myArray
+      
+             
+  //   }
+  // }
+  // mounted() {
+  //   if(localStorage.myArray) {
+  //     this.myArray = JSON.parse(localStorage.getItem('myArray')) || []
+  //   }
+  // }
+  
+
+     function handler(newArray) {
+        console.log('Updated')
+        localStorage.myArr = JSON.stringify(newArray)
+     }
+      deep: true
+    
+    // myArray(newValue, oldValue) 
+    //   localStorage.setItem("myArray", JSON.stringify(newValue))
+    
+  
+  function createNewPosition() {
+        let obj1 = {
+            title:"(Change the name of this title)",
+            invited:'invite',
+            evalute:'evolated',
+            preselect: 'preselected',
+            discard:'discard'
+        };
+          myArray.push(obj1);
+          console.log(myArray);
+        } 
+      
+
+// data : ()=> ({
+//   boards: [
+//     {
+//       title: "Vue JS",
+//     }
+     
+//   ]
+// })
