@@ -20,7 +20,7 @@
     <div class="flex">
         <div class="border-2 w-full h-1/4 m-1 mr-4 bg-white hover:bg-blue-200  flex  rounded-3xl">
         
-                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src ="img" :alt="desc">
+                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src ="{img}" :value="{desc}">
             <div class=" justify-between w-full flex space-x-6">
                     <div class="mx-3">
                         <div class="font-bold text-xl mb-2">Video Interview</div>
@@ -160,48 +160,59 @@
 </div>
 </template>
 
-<script>
-export default {
-    data() {
+<script setup>
+import { ref, reactive } from 'vue'
+
+const invite = ref('')
+// const isVisible= ref(false)
+const state= reactive({
+    title: '',
+    value: '',
+    img: 'https://picsum.photos/200/300',
+    desc:"Sunset in the mountains"
+})
+
+// export default {
+//     data() {
         
-        return {
-            invite: '',    
-            isVisible: false,
-            title: '',
-            value: '(Write Job title here)',
-            datas: [
-               { img: "https://picsum.photos/200/300"},
-               { desc:"Sunset in the mountains"},
+//         return {
+//             invite: '',    
+//             isVisible: false,
+//             title: '',
+//             value: '(Write Job title here)',
+//             datas: [
+//                { img: "https://picsum.photos/200/300"},
+//                { desc:"Sunset in the mountains"},
 
             
                
                 
-            ],
-            setups: [
-                {title: 'Vue JS'}
-            ]
+//             ],
+//             setups: [
+//                 {title: 'Vue JS'}
+//             ]
             
             
-        }
-    },
+//         }
+//     },
     
-    methods: {
-        toggleBox() {
-            this.isVisible = !this.isVisible
-        },
+//     methods: {
+//         toggleBox() {
+//             this.isVisible = !this.isVisible
+//         },
         
-        Submit() {
-            const items = []
-            const obj = {};
-            obj.invite = invite,
-            obj.evolate = evolate
-            items.push(obj);
-     },
-     show() {
-         console.log(items)
-     }
-    }
-}
+//         Submit() {
+//             const items = []
+//             const obj = {};
+//             obj.invite = invite,
+//             obj.evolate = evolate
+//             items.push(obj);
+//      },
+//      show() {
+//          console.log(items)
+//      }
+//     }
+// }
 
 </script>
 
