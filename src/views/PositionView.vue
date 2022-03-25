@@ -6,7 +6,7 @@ import ClosedTab from "./ClosedTab.vue";
 OpenTab
 ClosedTab
 
-const activeTab = ref('closedTab')
+const activeTab = ref('OpenTab')
 
 const state = reactive({
     
