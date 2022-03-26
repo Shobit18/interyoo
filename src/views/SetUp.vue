@@ -26,7 +26,7 @@
                         <div class="font-bold text-xl mb-2">Video Interview</div>
                         <h3>With 2 questions</h3>
                         <div class="space-x-3 py-3">
-                            <button class="rounded-full border-8 border-solid">Edit</button>
+                            <RouterLink to="/AddQuestion" class="rounded-full border-8 border-solid">Edit</RouterLink>
                             <button class="rounded-full border-8 border-solid">Preview</button>
                         </div>
                     </div>  
