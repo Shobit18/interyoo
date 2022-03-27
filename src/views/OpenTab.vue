@@ -1,7 +1,5 @@
-
 <template>
   <div> 
-  
 <div  v-for = "(myObject,index) in myArray" :key="index" class="mx-1 m-4">
     <div class="border-2 mx-20 py-4 hover:bg-blue-200 bg-white rounded-3xl ">
       <RouterLink to="./setUp" class="mx-4 item-center font-bold ">{{myObject.title}} </RouterLink>
@@ -16,8 +14,8 @@
         <RouterLink to="/SetUp" class="">{{myObject.setting}}</RouterLink>
         <RouterLink to="" class="">{{myObject.copy}}</RouterLink>
        <div>
-        <!-- <button @click="remove(stat)" class="">{{ myObject.deleted }}</button>  -->
-        <button @click="isOpen =true" class="">Delete</button>
+        <button @click="remove(stat)" class="">{{ myObject.deleted }}</button> 
+        <!-- <button @click="isOpen =true" class="">{{myObject.deleted}}</button>
         <teleport to="body" class="text-center bg-blue-50">
           <div class="" v-if="isOpen">
             <div class="text-center bg-blue-5">
@@ -26,7 +24,7 @@
                 />
             </div>
           </div>
-        </teleport>
+        </teleport> -->
            
        </div> 
         
@@ -37,11 +35,11 @@
  <div class="flex border-2 mx-20 py-4 bg-white hover:bg-blue-200 rounded-3xl ">
 
   
-      <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click=" createNewPosition()">Add New Position {{count}}  </RouterLink>
-      <!-- <button to="/setUp" @click="createNewPosition" class="mx-20 rounded-full">Add New Postion </button> -->
+      <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click=" createNewPosition(); count++">Add New Position</RouterLink>
+      <!-- <button to="/setUp" @click="createNewPosition(); count++" class="mx-20 rounded-full">Add New Postion {{ count }}</button> -->
       
     </div>
-     <button @click="increment">count is: {{ count }}</button>
+     <!-- <button @click="increment">count is: {{ count }}</button> -->
   </div>
 
 </template>
@@ -50,7 +48,7 @@
 import { ref, reactive,defineProps, toRefs, computed, watchEffect } from "vue"
 import ModelContent from "./ModelContent.vue";
 
-// const count = ref(0)
+const count = ref(0)
 const isOpen = ref(false)
 // let myArray = ref([]);
 const STORAGE_KEY = 'vue_interyoo'
@@ -98,9 +96,9 @@ function remove(stat) {
  
 }
      
-function increment() {
-  count.value++
-}     
+// function increment() {
+//   count.value++
+// }     
 
 // function open() {
 //   isOpen.value = true

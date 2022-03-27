@@ -13,23 +13,27 @@
 
 
 <div v-for="(object, index) in myArray" :key="index">
-    <div class="flex">
-        <div class="border-2 border-dashed hover:border-blue-50 w-full h-1/4  m-3 bg-white hover:bg-blue-200  flex rounded-3xl ">
-        
-            <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
-            <div>
-                <div>
-                    <textarea v-model="message" class="w-full hover:shadow-md border-4 mx-48 py-2 m-4 rounded-3xl" placeholder="Add question"></textarea>
-                </div>
-                    <div class="items-center">
-                    <textarea v-model="message" class="w-full hover:shadow-md border-4 mx-48 py-10 m-2 rounded-3xl" placeholder="Add Ans "></textarea>
-                </div>
-            </div>
-        </div>                       
-    </div>  
+    <div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
+    <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
+       <h1 class="space-x-2"> {{ count }} </h1>       
+                <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
+                    <div class=" items-center w-full mx-3"> 
+                        <div class="">
+                           <textarea v-model="message" class="w-full hover:shadow-md border-4   py-2 m-4 rounded-3xl text-center" placeholder=" Question Title" ></textarea>
+                        </div>
+                        <div class="items-center">
+                            <textarea v-model="message" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl text-center" placeholder=" Add Your Answer"></textarea>
+                        </div>
+                 </div> 
+        </div>
+        <div>
+            <button @click="remove(stat)" class="">Delete</button>
+            <button class="">Setting</button>
+        </div>   
+     </div>  
 </div>
     <div class=" ">
-        <button class=" w-full border-2 border-dashed m-2 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl" @click="addNewQuestion" >Add Question</button> 
+        <button class=" w-full border-2 border-dashed m-2 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
     </div>
 
 <div v-if="addFarewall">  
@@ -46,10 +50,9 @@
                         </div>
                  </div> 
         </div>
-                   <div>
-
-        <button class="mx-3" @click="addFarewall = !addFarewall">Delete</button>
-                 </div>   
+        <div>
+            <button class="mx-9" @click="addFarewall = !addFarewall">Delete</button>
+        </div>   
      </div>                          
     
 </div>   
@@ -61,7 +64,7 @@
  </div>     
 <div class="justify-between flex">
     <div>
-        <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Feadback</button>
+        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Save and go back</RouterLink>
     </div>
     
     <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </button>
@@ -74,6 +77,7 @@
 import { ref, watchEffect } from 'vue'
 const message= ref('')
 const addFarewall = ref(false)
+const count = ref(0)
 
 const STORAGE_KEY = 'vue_interyoo2'
 const img = ref("https://picsum.photos/200/300")
@@ -101,8 +105,19 @@ const retr2 = JSON.parse(retrievedData)
   console.log(retr2);
 
 }
+
+function remove(stat) {
+  
+  myArray.value.splice(myArray.value.indexOf(stat), 1)
+ 
+}
+
 // function addFarewall() {
 //      addFarewall.value = true
+// }
+
+// function increment() {
+//     count.value
 // }
 
 
