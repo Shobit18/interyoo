@@ -7,7 +7,7 @@
                 <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
             </div>   
             <div class="font-bold mx-16  ">
-                <input v-model="tittle" ref="title" class="rounded-md bg-slate-100  hover:border-4 " />
+                <input v-model="myArray.tittle" ref="title" class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
         
@@ -65,8 +65,8 @@
  </div>     
 <div class="justify-between flex">
     <div>
-        <!-- <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click= "onSubmit">Save and go back</RouterLink> -->
-        <button type="button" @click="dtSave()">save</button>
+        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="dtSave()">Save and go back</RouterLink>
+        <!-- <button type="button" @click="dtSave()">save</button> -->
     </div>
     
     <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </button>
@@ -98,18 +98,18 @@ function addNewQuestion()  {
             tittle: '',
             id:generateId(),
             img : 'https://picsum.photos/200/300',
-            ques: 'this is question'+generateId(),
-            ans: 'this is question'+generateId()
-            // ques: '',
-            // ans : '',
+            // ques: 'this is question'+generateId(),
+            // ans: 'this is question'+generateId()
+            ques: '',
+            ans : '',
            }
 myArray.value.push(obj1);
 
 console.log(myArray.value.length)
 
-function getData() {
-    console.log('Values: ' , ques.value, ans.value)
-}
+// function getData() {
+//     console.log('Values: ' , ques.value, ans.value)
+// }
 
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
@@ -131,9 +131,9 @@ localStorage.setItem(STORAGE_KEY,JSON.stringify(myArray.value));
  
 }
 
-function handler(myArray){
-    localStorage.myArray = JSON.stringify(myArray)
-}
+// function handler(myArray){
+//     localStorage.myArray = JSON.stringify(myArray)
+// }
 
 function dtSave() {
     
