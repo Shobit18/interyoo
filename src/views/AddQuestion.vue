@@ -1,33 +1,34 @@
 <template>
 <div>
-    <div class="items-center mx-48" >
+ <form @submit="onSubmit">   
+    <div class="items-center mx-48">
         <div class="flex m-3  ">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
                 <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
             </div>   
             <div class="font-bold mx-16  ">
-                <input type="text" class="rounded-md bg-slate-100  hover:border-4 " placeholder="(Write here the job title)" />
+                <input v-model="tittle" ref="title" class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
         
 
 
-<div v-for="(object, index) in myArray" :key="index">
+<div v-for="(object,index) in myArray" :key="index">
     <div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
-       <h1 class="space-x-2"> {{ count }} </h1>       
+       <h1 class="space-x-2"> {{index+1}} </h1>       
                 <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
                     <div class=" items-center w-full mx-3"> 
                         <div class="">
-                           <textarea v-model="message" class="w-full hover:shadow-md border-4   py-2 m-4 rounded-3xl text-center" placeholder=" Question Title" ></textarea>
+                           <textarea v-model="object.ques"   :id="'que_' + id" class="w-full hover:shadow-md border-4   py-2 m-4 rounded-3xl text-center" placeholder="Add your Question" ></textarea>
                         </div>
                         <div class="items-center">
-                            <textarea v-model="message" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl text-center" placeholder=" Add Your Answer"></textarea>
+                            <textarea v-model="object.ans" :id="'ans_' + id" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl text-center" placeholder=" Add Your Answer"></textarea>
                         </div>
                  </div> 
         </div>
         <div>
-            <button @click="remove(stat)" class="">Delete</button>
+            <button @click="remove(index)" class="">Delete</button>
             <button class="">Setting</button>
         </div>   
      </div>  
@@ -41,12 +42,12 @@
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
         
                 <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
-                    <div> 
+                    <div class="item-center w-full mx-3"> 
                         <div>
-                           <textarea v-model="message" class="w-full hover:shadow-md border-4 mx-48 py-2 m-4 rounded-3xl text-center" placeholder=" Done!!!" ></textarea>
+                           <textarea v-model="message"  class="w-full hover:shadow-md border-4  py-2 m-4 rounded-3xl text-center" placeholder=" Done!!!" ></textarea>
                         </div>
                         <div class="items-center">
-                            <textarea v-model="message" class="w-full hover:shadow-md border-4 mx-48 py-10 m-2 rounded-3xl" placeholder=" Thank you for completing the interview, we will contact you shortly. "></textarea>
+                            <textarea v-model="message" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl" placeholder=" Thank you for completing the interview, we will contact you shortly. "></textarea>
                         </div>
                  </div> 
         </div>
@@ -64,12 +65,14 @@
  </div>     
 <div class="justify-between flex">
     <div>
-        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Save and go back</RouterLink>
+        <!-- <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click= "onSubmit">Save and go back</RouterLink> -->
+        <button type="button" @click="dtSave()">save</button>
     </div>
     
     <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </button>
+    </div>
 </div>
-    </div>   
+ </form>   
 </div>
 </template>
 
@@ -78,21 +81,35 @@ import { ref, watchEffect } from 'vue'
 const message= ref('')
 const addFarewall = ref(false)
 const count = ref(0)
+const ques = ref('')
+const ans = ref('')
+const tittle = ref('Write Your Job')
 
 const STORAGE_KEY = 'vue_interyoo2'
 const img = ref("https://picsum.photos/200/300")
 const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
+const arrcount = myArray.value.length;
+console.log(arrcount);
 
 
 function addNewQuestion()  {
+     const generateId = () => Math.random().toString(36).substr(2, 18);
  let obj1 = {
+            tittle: '',
+            id:generateId(),
             img : 'https://picsum.photos/200/300',
-            message: '',
+            ques: 'this is question'+generateId(),
+            ans: 'this is question'+generateId()
+            // ques: '',
+            // ans : '',
            }
 myArray.value.push(obj1);
 
+console.log(myArray.value.length)
 
-
+function getData() {
+    console.log('Values: ' , ques.value, ans.value)
+}
 
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
@@ -106,11 +123,38 @@ const retr2 = JSON.parse(retrievedData)
 
 }
 
-function remove(stat) {
+function remove(index) {
   
-  myArray.value.splice(myArray.value.indexOf(stat), 1)
+//   myArray.value.splice(myArray.value.indexOf(stat), 1)
+myArray.value.splice(index, 1);
+localStorage.setItem(STORAGE_KEY,JSON.stringify(myArray.value));
  
 }
+
+function handler(myArray){
+    localStorage.myArray = JSON.stringify(myArray)
+}
+
+function dtSave() {
+    
+    console.log(myArray);
+
+}
+
+// function onSubmit1() {
+// console.log('data s')
+//     img.value='',
+//     message.value='',
+//     ques.value='',
+//     ans.value=''
+//     console.log('Data submitted')
+//     // for(let i=0; i<=count.value; i++) {
+//     //     console.log(i);
+//     // }
+// console.log(onSubmit)
+    
+// }
+
 
 // function addFarewall() {
 //      addFarewall.value = true

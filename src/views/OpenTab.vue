@@ -35,7 +35,7 @@
  <div class="flex border-2 mx-20 py-4 bg-white hover:bg-blue-200 rounded-3xl ">
 
   
-      <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click=" createNewPosition(); count++">Add New Position</RouterLink>
+      <RouterLink  to="/SetUp" class="mx-20 rounded-full" @click=" createNewPosition">Add New Position </RouterLink>
       <!-- <button to="/setUp" @click="createNewPosition(); count++" class="mx-20 rounded-full">Add New Postion {{ count }}</button> -->
       
     </div>
@@ -62,6 +62,7 @@ const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
 
 // myArray.value.push(storedNames);
 function createNewPosition()  {
+  // count.value++;
  let obj1 = {
             title:"(Change the name of this title)",
             invited:'invite',
