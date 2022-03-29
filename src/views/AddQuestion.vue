@@ -1,13 +1,13 @@
 <template>
 <div>
- <form @submit="onSubmit">   
+ <form @submit.prevent="onSubmit1">   
     <div class="items-center mx-48">
         <div class="flex m-3  ">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
-                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
+                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img2" />
             </div>   
             <div class="font-bold mx-16  ">
-                <input v-model="myArray.tittle" ref="title" class="rounded-md bg-slate-100  hover:border-4 " />
+                <input v-model="title"  class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
         
@@ -83,17 +83,21 @@ const addFarewall = ref(false)
 const count = ref(0)
 const ques = ref('')
 const ans = ref('')
-const tittle = ref('Write Your Job')
+// const tittle = ref('Write Your Job')
 
 const STORAGE_KEY = 'vue_interyoo2'
+const STORAGE_KEY2 = 'title1'
+const STORAGE_KEY3 = 'img1'
 const img = ref("https://picsum.photos/200/300")
 const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
+const title =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY2) || '[]'))
+const img2 =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY3) || '[]'))
 const arrcount = myArray.value.length;
 console.log(arrcount);
 
 
 function addNewQuestion()  {
-     const generateId = () => Math.random().toString(36).substr(2, 18);
+     const generateId = () => Math.random().toString(36);
  let obj1 = {
             tittle: '',
             id:generateId(),
@@ -113,13 +117,21 @@ console.log(myArray.value.length)
 
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
+  localStorage.setItem(STORAGE_KEY2, JSON.stringify(title.value))
+  localStorage.setItem(STORAGE_KEY3, JSON.stringify(img2.value))
 })
 
   let retrievedData = localStorage.getItem("myArray");
+  let retitle = localStorage.getItem("title");
+  let reimg = localStorage.getItem("img2");
   
-retrievedData = localStorage.getItem("myArray")
-const retr2 = JSON.parse(retrievedData)
+// retrievedData = localStorage.getItem("myArray")
+const retr1 = JSON.parse(retrievedData)
+console.log(retr1);
+const retr2 = JSON.parse(retitle)
   console.log(retr2);
+  const retr3 = JSON.parse(reimg)
+  console.log(retr3);
 
 }
 
@@ -141,45 +153,14 @@ function dtSave() {
 
 }
 
-// function onSubmit1() {
-// console.log('data s')
-//     img.value='',
-//     message.value='',
-//     ques.value='',
-//     ans.value=''
-//     console.log('Data submitted')
-//     // for(let i=0; i<=count.value; i++) {
-//     //     console.log(i);
-//     // }
-// console.log(onSubmit)
-    
-// }
+function onSubmit1(e) {
 
 
-// function addFarewall() {
-//      addFarewall.value = true
-// }
-
-// function increment() {
-//     count.value
-// }
+    console.log('Data submitted')
+    e.preventDefault();
+}
 
 
-
-
-// export default {
-//     // data() {
-//     //     return {
-//     //         img: ,
-
-//     //     }
-//     // },
-//     methods: {
-//         onClick() {
-            
-//         }
-//     }
-// }
 </script>
 
 <style scoped>

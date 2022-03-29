@@ -73,7 +73,7 @@
 
 
     <div class="">
-        <div   class="flex mx-4 m-3 justify-between">
+        <div class="flex mx-4 m-3 justify-between">
             <div class="flex ">
                 <label>Send</label>
             <div class="flex mx-4 ">
