@@ -7,6 +7,11 @@ import ClosedTab from "./ClosedTab.vue";
 OpenTab
 ClosedTab
 
+
+const myArray =  ref(JSON.parse(localStorage.getItem('vue_interyoo2') || '[]'))
+const qlength = ref();
+qlength.value = myArray.value.length;
+
 const activeTab = ref('OpenTab')
 
 const state = reactive({
@@ -25,7 +30,7 @@ const state = reactive({
 
     <div class="flex m-5 py-2 border-2 space-x-5 mx-20 w-44 justify-center bg-white rounded-3xl">
 
-        <a class="flex  mx-2"><button class="focus:bg-green-600 rounded" @click="activeTab = 'OpenTab'">Open</button></a>
+        <a class="flex  mx-2"><button class="focus:bg-green-600 rounded" @click="activeTab = 'OpenTab'">Open {{qlength}}</button></a>
         <a class="flex  mx-2"><button class="focus:bg-green-600 rounded" @click="activeTab = 'ClosedTab'">closed</button></a>
         
     </div>

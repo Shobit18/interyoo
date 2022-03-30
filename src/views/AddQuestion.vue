@@ -6,9 +6,19 @@
         <div class="flex m-3">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
                 <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
+                 <button type="button" id="show-modal" @click="showModal = true">Show Modal</button>
+
+  <Teleport to="body">
+    <!-- use the modal component, pass in the prop -->
+    <modal :show="showModal" @close="showModal = false">
+      <template #header>
+        <h3>custom header</h3>
+      </template>
+    </modal>
+  </Teleport>
             </div>   
             <div class="font-bold mx-16  ">
-                <input v-model="title" @input="$emit('update:modelValue', $event.target.value)"  class="rounded-md bg-slate-100  hover:border-4 " />
+                <input v-model="title" @change="changeTitle" @input="$emit('update:modelValue', $event.target.value)"  placeholder="(Enter job title)" class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
     </div>    
@@ -34,7 +44,7 @@
      </div>  
 </div>
     <div class=" ">
-        <button class=" w-full border-2 border-dashed m-2 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
+        <button type="button" class=" w-full border-2 border-dashed m-2 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
     </div>
 
 <div v-if="addFarewall">  
@@ -65,11 +75,12 @@
  </div>     
 <div class="justify-between flex">
     <div>
-        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="dtSave()">Save and go back</RouterLink>
+        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="dtSave(); onSubmit()">Save and go back</RouterLink>
         <!-- <button type="button" @click="dtSave()">save</button> -->
     </div>
     
-    <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </button>
+    <n-button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </n-button>
+    
     </div>
 
  </form>   
@@ -78,6 +89,15 @@
 
 <script setup>
 import { ref, watchEffect, reactive, computed  } from 'vue'
+import { NButton } from  'naive-ui'
+import Modal from './Modal.vue'
+
+Modal
+
+const showModal = ref(false)
+
+NButton
+
 const message= ref('')
 const addFarewall = ref(false)
 const count = ref(0)
@@ -107,7 +127,9 @@ console.log(arrcount);
 //     img.value || ques.value || ans.value
     
 // )
-
+const  changeTitle = () => {
+      localStorage.setItem(STORAGE_KEY2, JSON.stringify(title.value))
+}
 function addNewQuestion()  {
      const generateId = () => Math.random().toString(36)
  let obj1 = {
@@ -130,7 +152,7 @@ console.log(myArray.value.length)
 
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
-  localStorage.setItem(STORAGE_KEY2, JSON.stringify(title.value))
+
   localStorage.setItem('img', JSON.stringify(img.value))
     
     })
@@ -165,7 +187,7 @@ function dtSave() {
     // if(getJson) {
     //     myArray = JSON.parse(getJson)
     // }
-    console.log(myArray)
+    // console.log(myArray)
 }
 
 function onSubmit() {
@@ -179,39 +201,13 @@ function onSubmit() {
     //     console.log(i);
     // }
 // console.log(onSubmit)
+console.log(myArray)
     
 }
 
 
-// function get() {
-
-//     }
 
 
-// function addFarewall() {
-//      addFarewall.value = true
-// }
-
-// function increment() {
-//     count.value
-// }
-
-
-
-
-// export default {
-//     // data() {
-//     //     return {
-//     //         img: ,
-
-//     //     }
-//     // },
-//     methods: {
-//         onClick() {
-            
-//         }
-//     }
-// }
 </script>
 
 <style scoped>

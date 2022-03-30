@@ -12,7 +12,7 @@ import ToDiscard from '../views/ToDiscard.vue'
 import PositionDelete from '../views/PositionDelete.vue'
 import LogIn from '../views/LogIn.vue'
 import SignUp from '../views/SignUp.vue'
-import CustomBinding from '../views/CustomBinding.vue'
+import CustomBranding from '../views/CustomBranding.vue'
 
 
 const router = createRouter({
@@ -84,9 +84,9 @@ const router = createRouter({
      component: SignUp
     },
     {
-      path: '/CustomBinding',
-      name: 'CustomBinding',
-     component: CustomBinding
+      path: '/CustomBranding',
+      name: 'CustomBranding',
+     component: CustomBranding
     },
     
   ]

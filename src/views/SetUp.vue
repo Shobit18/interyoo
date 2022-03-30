@@ -3,7 +3,7 @@
     
     <form>
       <div class="py-3 m-4 ">
-        <input type = "text" value="(Write your Job title)"   class="w-full bg-slate-200 hover:border-4 border-solid rounded-md"  >
+        <input v-model="title" placeholder="(Write your Job title)"   class="w-full bg-slate-200 hover:border-4 border-solid rounded-md"  >
       </div>
     </form>
 <div class="flex justify-between py-6">
@@ -24,7 +24,7 @@
             <div class=" justify-between w-full flex space-x-6">
                     <div class="mx-3">
                         <div class="font-bold text-xl mb-2">Video Interview</div>
-                        <h3>With 2 questions</h3>
+                        <h3>With {{qlength}} questions</h3>
                         <div class="space-x-3 py-3">
                             <RouterLink to="/AddQuestion" class="rounded-full border-8 border-solid">Edit</RouterLink>
                             <button class="rounded-full border-8 border-solid">Preview</button>
@@ -163,6 +163,13 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
+const title = ref();
+title.value = JSON.parse(localStorage.getItem("title1") || '[]');
+
+const myArray =  ref(JSON.parse(localStorage.getItem('vue_interyoo2') || '[]'))
+const qlength = ref();
+qlength.value = myArray.value.length;
+  
 const invite = ref('')
 // const isVisible= ref(false)
 const state= reactive({
@@ -172,48 +179,9 @@ const state= reactive({
     desc:"Sunset in the mountains"
 })
 
-// export default {
-//     data() {
-        
-//         return {
-//             invite: '',    
-//             isVisible: false,
-//             title: '',
-//             value: '(Write Job title here)',
-//             datas: [
-//                { img: "https://picsum.photos/200/300"},
-//                { desc:"Sunset in the mountains"},
 
-            
-               
-                
-//             ],
-//             setups: [
-//                 {title: 'Vue JS'}
-//             ]
-            
-            
-//         }
-//     },
-    
-//     methods: {
-//         toggleBox() {
-//             this.isVisible = !this.isVisible
-//         },
-        
-//         Submit() {
-//             const items = []
-//             const obj = {};
-//             obj.invite = invite,
-//             obj.evolate = evolate
-//             items.push(obj);
-//      },
-//      show() {
-//          console.log(items)
-//      }
-//     }
-// }
-
+//  title.value = localStorage.getItem('title');
+// console.log(title.value)
 </script>
 
 <style>

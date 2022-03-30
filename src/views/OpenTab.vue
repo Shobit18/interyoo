@@ -2,7 +2,7 @@
   <div> 
 <div  v-for = "(myObject,index) in myArray" :key="index" class="mx-1 m-4">
     <div class="border-2 mx-20 py-4 hover:bg-blue-200 bg-white rounded-3xl ">
-      <RouterLink to="./setUp" class="mx-4 item-center font-bold ">{{myObject.title}} </RouterLink>
+      <RouterLink to="./setUp" class="mx-4 item-center font-bold ">{{title}} </RouterLink>
       <div class="flex justify-between ">
       <div class="flex space-x-3 mr-3">
           <RouterLink to="/ToInvited" class="border-2 m-3 bg-slate-100 rounded-md">{{ myObject.invited }}</RouterLink>
@@ -46,12 +46,15 @@
 
 <script  setup>
 import { ref, reactive,defineProps, toRefs, computed, watchEffect } from "vue"
-import ModelContent from "./ModelContent.vue";
 
 const count = ref(0)
 const isOpen = ref(false)
 // let myArray = ref([]);
 const STORAGE_KEY = 'vue_interyoo'
+
+const title = ref();
+title.value = JSON.parse(localStorage.getItem("title1") || '[]');
+
 defineProps({
   count:Number
 })
@@ -62,9 +65,11 @@ const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
 
 // myArray.value.push(storedNames);
 function createNewPosition()  {
+  const generateId = () => Math.random().toString(36)
   // count.value++;
  let obj1 = {
-            title:"(Change the name of this title)",
+            // title:"(Change the name of this title)",
+            id:generateId(),
             invited:'invite',
             evalute:'evolated',
             preselect: 'preselected',
@@ -93,7 +98,9 @@ const retr2 = JSON.parse(retrievedData)
 
 function remove(stat) {
   
-  myArray.value.splice(myArray.value.indexOf(stat), 1)
+  // myArray.value.splice(myArray.value.indexOf(stat), 1)
+  myArray.value.splice(stat, 1);
+localStorage.setItem(STORAGE_KEY,JSON.stringify(myArray.value));
  
 }
      
