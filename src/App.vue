@@ -18,6 +18,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
                     <!-- <RouterLink to="/report">Report</RouterLink>
                     <RouterLink to="/AddQuestion">AddQuestion</RouterLink>
                     <RouterLink to="/ToInvited">ToInvited</RouterLink> -->
+                    <RouterLink to="/CustomBinding">Custom Binding</RouterLink>
             </div>   
     
       
