@@ -1,22 +1,14 @@
 <template>
 <div>
-<<<<<<< HEAD
  <form @submit="onSubmit">
      
-=======
- <form @submit.prevent="onSubmit1">   
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
     <div class="items-center mx-48">
         <div class="flex m-3">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
-                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img2" />
+                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
             </div>   
             <div class="font-bold mx-16  ">
-<<<<<<< HEAD
                 <input v-model="title" @input="$emit('update:modelValue', $event.target.value)"  class="rounded-md bg-slate-100  hover:border-4 " />
-=======
-                <input v-model="title"  class="rounded-md bg-slate-100  hover:border-4 " />
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
             </div>
         </div>
     </div>    
@@ -91,7 +83,6 @@ const addFarewall = ref(false)
 const count = ref(0)
 const ques = ref('')
 const ans = ref('')
-<<<<<<< HEAD
 // const title = ref('Write Your Job')
 
 // definedProps({
@@ -106,17 +97,6 @@ const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
 const title =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY2) || '[]'))
 
 
-=======
-// const tittle = ref('Write Your Job')
-
-const STORAGE_KEY = 'vue_interyoo2'
-const STORAGE_KEY2 = 'title1'
-const STORAGE_KEY3 = 'img1'
-const img = ref("https://picsum.photos/200/300")
-const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
-const title =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY2) || '[]'))
-const img2 =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY3) || '[]'))
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
 const arrcount = myArray.value.length;
 console.log(arrcount);
 // const isReturn = computed(() => tittle === 'Write You title' )
@@ -129,11 +109,7 @@ console.log(arrcount);
 // )
 
 function addNewQuestion()  {
-<<<<<<< HEAD
      const generateId = () => Math.random().toString(36)
-=======
-     const generateId = () => Math.random().toString(36);
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
  let obj1 = {
             
             id:generateId(),
@@ -155,7 +131,6 @@ console.log(myArray.value.length)
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
   localStorage.setItem(STORAGE_KEY2, JSON.stringify(title.value))
-<<<<<<< HEAD
   localStorage.setItem('img', JSON.stringify(img.value))
     
     })
@@ -171,22 +146,6 @@ const retr2 = JSON.parse(retrievedData)
   console.log(reimg)
 
 
-=======
-  localStorage.setItem(STORAGE_KEY3, JSON.stringify(img2.value))
-})
-
-  let retrievedData = localStorage.getItem("myArray");
-  let retitle = localStorage.getItem("title");
-  let reimg = localStorage.getItem("img2");
-  
-// retrievedData = localStorage.getItem("myArray")
-const retr1 = JSON.parse(retrievedData)
-console.log(retr1);
-const retr2 = JSON.parse(retitle)
-  console.log(retr2);
-  const retr3 = JSON.parse(reimg)
-  console.log(retr3);
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
 
 }
 
@@ -209,7 +168,6 @@ function dtSave() {
     console.log(myArray)
 }
 
-<<<<<<< HEAD
 function onSubmit() {
 // console.log('data s')
     img.value='',
@@ -238,16 +196,22 @@ function onSubmit() {
 //     count.value
 // }
 
-=======
-function onSubmit1(e) {
->>>>>>> e0b3187c1eacbe6723f87919c516de5be092d316
 
 
-    console.log('Data submitted')
-    e.preventDefault();
-}
 
+// export default {
+//     // data() {
+//     //     return {
+//     //         img: ,
 
+//     //     }
+//     // },
+//     methods: {
+//         onClick() {
+            
+//         }
+//     }
+// }
 </script>
 
 <style scoped>
