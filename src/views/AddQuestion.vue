@@ -1,18 +1,18 @@
 <template>
 <div>
- <form @submit="onSubmit">   
+ <form @submit="onSubmit">
+     
     <div class="items-center mx-48">
-        <div class="flex m-3  ">
+        <div class="flex m-3">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
                 <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
             </div>   
             <div class="font-bold mx-16  ">
-                <input v-model="myArray.tittle" ref="title" class="rounded-md bg-slate-100  hover:border-4 " />
+                <input v-model="title" @input="$emit('update:modelValue', $event.target.value)"  class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
-        
-
-
+    </div>    
+ 
 <div v-for="(object,index) in myArray" :key="index">
     <div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
@@ -71,31 +71,47 @@
     
     <button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </button>
     </div>
-</div>
+
  </form>   
 </div>
 </template>
 
 <script setup>
-import { ref, watchEffect } from 'vue'
+import { ref, watchEffect, reactive, computed  } from 'vue'
 const message= ref('')
 const addFarewall = ref(false)
 const count = ref(0)
 const ques = ref('')
 const ans = ref('')
-const tittle = ref('Write Your Job')
+// const title = ref('Write Your Job')
+
+// definedProps({
+//     ModelValue: String
+// })
 
 const STORAGE_KEY = 'vue_interyoo2'
+const STORAGE_KEY2 = 'title1'
+
 const img = ref("https://picsum.photos/200/300")
 const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
+const title =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY2) || '[]'))
+
+
 const arrcount = myArray.value.length;
 console.log(arrcount);
+// const isReturn = computed(() => tittle === 'Write You title' )
 
+// const isData = computed( 
+//     () => 
+//     !isReturn.value ||  
+//     img.value || ques.value || ans.value
+    
+// )
 
 function addNewQuestion()  {
-     const generateId = () => Math.random().toString(36).substr(2, 18);
+     const generateId = () => Math.random().toString(36)
  let obj1 = {
-            tittle: '',
+            
             id:generateId(),
             img : 'https://picsum.photos/200/300',
             // ques: 'this is question'+generateId(),
@@ -107,19 +123,29 @@ myArray.value.push(obj1);
 
 console.log(myArray.value.length)
 
+
 // function getData() {
 //     console.log('Values: ' , ques.value, ans.value)
 // }
 
 watchEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(myArray.value))
-})
+  localStorage.setItem(STORAGE_KEY2, JSON.stringify(title.value))
+  localStorage.setItem('img', JSON.stringify(img.value))
+    
+    })
 
   let retrievedData = localStorage.getItem("myArray");
-  
-retrievedData = localStorage.getItem("myArray")
+  let retitle = localStorage.getItem('title');
+  let reimg = localStorage.getItem('')
+// retrievedData = localStorage.getItem("myArray")
 const retr2 = JSON.parse(retrievedData)
   console.log(retr2);
+  const ret2 = JSON.parse(retitle)
+  console.log(ret2)
+  console.log(reimg)
+
+
 
 }
 
@@ -131,29 +157,35 @@ localStorage.setItem(STORAGE_KEY,JSON.stringify(myArray.value));
  
 }
 
-// function handler(myArray){
-//     localStorage.myArray = JSON.stringify(myArray)
-// }
 
 function dtSave() {
     
-    console.log(myArray);
-
+    // console.log(myArray);
+    //     var getJson = localStorage.getItem('t STORAGE_KEY')
+    // if(getJson) {
+    //     myArray = JSON.parse(getJson)
+    // }
+    console.log(myArray)
 }
 
-// function onSubmit1() {
+function onSubmit() {
 // console.log('data s')
-//     img.value='',
-//     message.value='',
-//     ques.value='',
-//     ans.value=''
-//     console.log('Data submitted')
-//     // for(let i=0; i<=count.value; i++) {
-//     //     console.log(i);
-//     // }
+    img.value='',
+    message.value='',
+    ques.value='',
+    ans.value=''
+    console.log('Data submitted')
+    // for(let i=0; i<=count.value; i++) {
+    //     console.log(i);
+    // }
 // console.log(onSubmit)
     
-// }
+}
+
+
+// function get() {
+
+//     }
 
 
 // function addFarewall() {
