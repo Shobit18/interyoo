@@ -88,8 +88,6 @@ const retr2 = JSON.parse(retrievedData)
 
 }
 
-
-
 function remove(stat) {
   
   alert('Are you sure to Delete This')

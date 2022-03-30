@@ -6,23 +6,33 @@
         <div class="flex m-3">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
                 <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
-                 <button type="button" id="show-modal" @click="showModal = true">Show Modal</button>
+                <n-button @click="showModal = true">
+                    Start Me up
+                </n-button>     
+            </div> 
 
-  <Teleport to="body">
-    <!-- use the modal component, pass in the prop -->
-    <modal :show="showModal" @close="showModal = false">
-      <template #header>
-        <h3>custom header</h3>
-      </template>
-    </modal>
-  </Teleport>
-            </div>   
+ 
+
             <div class="font-bold mx-16  ">
                 <input v-model="title" @change="changeTitle" @input="$emit('update:modelValue', $event.target.value)"  placeholder="(Enter job title)" class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
     </div>    
  
+<n-modal v-show="showModal">
+<div class="   mx-96 h-screen py-12 w-86 items-center bg-white border-2  h-lg shadow-lg rounded-md ">
+	<div class="border-2 m-2 h-80 ">
+        <img v-bind:src="img" class="" />
+    </div>
+    <div>
+
+    </div>
+   <div class="mx-72">
+       <button class="fixed text bg-center rounded-full h-10 w-48 bg-green-500">Start Recording</button>
+    </div> 
+</div>
+ </n-modal>  
+
 <div v-for="(object,index) in myArray" :key="index">
     <div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
@@ -83,6 +93,7 @@
     
     </div>
 
+
  </form>   
 </div>
 </template>
@@ -90,9 +101,9 @@
 <script setup>
 import { ref, watchEffect, reactive, computed  } from 'vue'
 import { NButton } from  'naive-ui'
-import Modal from './Modal.vue'
+// import Modal from './Modal.vue'
 
-Modal
+// Modal
 
 const showModal = ref(false)
 
@@ -103,8 +114,7 @@ const addFarewall = ref(false)
 const count = ref(0)
 const ques = ref('')
 const ans = ref('')
-// const title = ref('Write Your Job')
-
+const showModel = ref(false)
 // definedProps({
 //     ModelValue: String
 // })
