@@ -5,39 +5,30 @@
     <div class="items-center mx-48">
         <div class="flex m-3">
             <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
-                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" />
-                <n-button @click="showModal = true">
-                    Start Me up
-                </n-button>     
+                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" id="show-modal" @click="showModal = !showModal"/>
+                
             </div> 
-
- 
-
             <div class="font-bold mx-16  ">
                 <input v-model="title" @change="changeTitle" @input="$emit('update:modelValue', $event.target.value)"  placeholder="(Enter job title)" class="rounded-md bg-slate-100  hover:border-4 " />
             </div>
         </div>
     </div>    
  
-<n-modal v-show="showModal">
-<div class="   mx-96 h-screen py-12 w-86 items-center bg-white border-2  h-lg shadow-lg rounded-md ">
-	<div class="border-2 m-2 h-80 ">
-        <img v-bind:src="img" class="" />
-    </div>
-    <div>
+    <Teleport to="body">
+    <modal :show="showModal" @close="showModal = false" >
+    </modal>
+  </Teleport>
 
-    </div>
-   <div class="mx-72">
-       <button class="fixed text bg-center rounded-full h-10 w-48 bg-green-500">Start Recording</button>
-    </div> 
-</div>
- </n-modal>  
+
+
 
 <div v-for="(object,index) in myArray" :key="index">
-    <div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
+    <div class="flex  bg-white m-5 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
        <h1 class="space-x-2"> {{index+1}} </h1>       
-                <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
+                <!-- <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" id="show-modal" @click="showModal = true" /> -->
+              <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" id="show-modal" @click="showModal = !showModal" />
+              
                     <div class=" items-center w-full mx-3"> 
                         <div class="">
                            <textarea v-model="object.ques"   :id="'que_' + id" class="w-full hover:shadow-md border-4   py-2 m-4 rounded-3xl text-center" placeholder="Add your Question" ></textarea>
@@ -54,15 +45,15 @@
      </div>  
 </div>
     <div class=" ">
-        <button type="button" class=" w-full border-2 border-dashed m-2 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
+        <button type="button" class=" w-full border-2 border-dashed m-5 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
     </div>
 
 <div v-if="addFarewall">  
-<div class="flex w-full bg-white m-2 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
+<div class="flex w-full bg-white m-5 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
     <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
         
-                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains">
-                    <div class="item-center w-full mx-3"> 
+                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" @click="showModal = !showModal">
+                    <div class="item-center w-full m-4"> 
                         <div>
                            <textarea v-model="message"  class="w-full hover:shadow-md border-4  py-2 m-4 rounded-3xl text-center" placeholder=" Done!!!" ></textarea>
                         </div>
@@ -79,7 +70,7 @@
 </div>   
  <div v-else>
     <div class="">
-        <button class="m-3 text-center w-full  h-9 bg-white hover:bg-blue-200  rounded-3xl" @click="addFarewall = !addFarewall">Add Farewell video and Messsage</button>
+        <button class="m-5 text-center w-full  h-9 bg-white hover:bg-blue-200  rounded-3xl" @click="addFarewall = !addFarewall">Add Farewell video and Messsage</button>
         <!-- <h1 class=" m-3 text-center  h-9 bg-white hover:bg-blue-200  rounded-3xl" @click="addFarewall= !addFarewall">Add Farewell video and Messsage</h1>  -->
     </div>
  </div>     
@@ -89,9 +80,14 @@
         <!-- <button type="button" @click="dtSave()">save</button> -->
     </div>
     
-    <n-button class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200">Preview Interview </n-button>
+    <button type="button" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="prevInterview = !prevInterview">Preview Interview </button>
     
     </div>
+
+    <Teleport to="body">
+    <previewInterview :show="prevInterview" @close="prevInterview = false" >
+    </previewInterview>
+  </Teleport>
 
 
  </form>   
@@ -101,11 +97,15 @@
 <script setup>
 import { ref, watchEffect, reactive, computed  } from 'vue'
 import { NButton } from  'naive-ui'
-// import Modal from './Modal.vue'
+import Modal from './Modal.vue'
+import previewInterview from './previewInterview.vue'
 
-// Modal
+
+Modal
+previewInterview
 
 const showModal = ref(false)
+const prevInterview = ref(false)
 
 NButton
 
@@ -114,7 +114,7 @@ const addFarewall = ref(false)
 const count = ref(0)
 const ques = ref('')
 const ans = ref('')
-const showModel = ref(false)
+// const showModel = ref(false)
 // definedProps({
 //     ModelValue: String
 // })

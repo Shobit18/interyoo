@@ -13,6 +13,7 @@ import PositionDelete from '../views/PositionDelete.vue'
 import LogIn from '../views/LogIn.vue'
 import SignUp from '../views/SignUp.vue'
 import CustomBranding from '../views/CustomBranding.vue'
+import previewInterview from '../views/previewInterview.vue'
 
 
 const router = createRouter({
@@ -87,6 +88,11 @@ const router = createRouter({
       path: '/CustomBranding',
       name: 'CustomBranding',
      component: CustomBranding
+    },
+    {
+      path: '/previewInterview',
+      name: 'previewInterview',
+     component: previewInterview
     },
     
   ]

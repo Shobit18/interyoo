@@ -14,6 +14,8 @@ library.add(far);
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();
 
+import naive from 'naive-ui'
+
 const app = createApp(App)
 
 
@@ -22,3 +24,4 @@ app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router)
 
 app.mount('#app')
+app.use(naive)
