@@ -1,18 +1,20 @@
 <template>
 <div>
+<div class="bg-white m-3 rounded-sm  ">
  <form @submit="onSubmit">
      
-    <div class="items-center mx-48">
+    <div class="items-center mx-48 ">
         <div class="flex m-3">
-            <div class="border-dashed hover:border-blue-50 hover:shadow-md bg-white rounded-md">
-                <img class="w-32 h-32 m-3 rounded-2xl" v-bind:src="img" id="show-modal" @click="showModal = !showModal"/>
+            <div class="border-2 border-green-100 hover:border-green-100 m-3 hover:shadow-md bg-white rounded-md">
+                <img class="w-32 h-32 m-3 rounded-sm" v-bind:src="img" id="show-modal" @click="showModal = !showModal"/>
                 
             </div> 
             <div class="font-bold mx-16  ">
-                <input v-model="title" @change="changeTitle" @input="$emit('update:modelValue', $event.target.value)"  placeholder="(Enter job title)" class="rounded-md bg-slate-100  hover:border-4 " />
+                <!-- <input   @input="$emit('update:modelValue', $event.target.value)"  placeholder="(Enter job title)" class="rounded-md   hover:bord " /> -->
+                <input v-model="title" @change="changeTitle"  type="text" placeholder="(Enter job title)" class="w-96 text-center h-9 m-3 hover:border-green-400 rounded-sm "/>
             </div>
         </div>
-    </div>    
+    </div>   
  
     <Teleport to="body">
     <modal :show="showModal" @close="showModal = false" >
@@ -20,45 +22,48 @@
   </Teleport>
 
 
-
+    <div class="flex justify-between mx-48">
+        <h2></h2>
+        <h1 class="">Total qustions : {{ qlength }} </h1>
+    </div>
 
 <div v-for="(object,index) in myArray" :key="index">
-    <div class="flex  bg-white m-5 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
-    <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
+    <div class="flex bg-white mx-48  mt-5 ml-52 border-2 hover:border-green-100 hover:shadow-lg rounded-sm">
+    <div class=" h-1/4  m-3 bg-white   flex  w-full ">
        <h1 class="space-x-2"> {{index+1}} </h1>       
                 <!-- <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" id="show-modal" @click="showModal = true" /> -->
-              <img class=" w-32 h-32 m-3 mx-16 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" id="show-modal" @click="showModal = !showModal" />
+              <img class=" w-32 h-32 m-3 mx-16 rounded-sm" v-bind:src="img"  alt="Sunset in the mountains" id="show-modal" @click="showModal = !showModal" />
               
                     <div class=" items-center w-full mx-3"> 
                         <div class="">
-                           <textarea v-model="object.ques"   :id="'que_' + id" class="w-full hover:shadow-md border-4   py-2 m-4 rounded-3xl text-center" placeholder="Add your Question" ></textarea>
+                           <textarea v-model="object.ques"   :id="'que_' + id" class="w-full hover:shadow-lg border-2   py-2 m-4 rounded-sm text-center" placeholder="Add your Question" ></textarea>
                         </div>
                         <div class="items-center">
-                            <textarea v-model="object.ans" :id="'ans_' + id" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl text-center" placeholder=" Add Your Answer"></textarea>
+                            <textarea v-model="object.ans" :id="'ans_' + id" class="w-full hover:shadow-lg border-2  py-10 m-2 rounded-sm text-center" placeholder=" Add Your Answer"></textarea>
                         </div>
                  </div> 
         </div>
         <div>
-            <button @click="remove(index)" class="">Delete</button>
+            <button type="button" @click="remove(index)" class="">Delete</button>
             <button class="">Setting</button>
         </div>   
      </div>  
 </div>
-    <div class=" ">
-        <button type="button" class=" w-full border-2 border-dashed m-5 text-center  h-9 bg-white hover:bg-blue-200 rounded-3xl " @click="addNewQuestion(); count++" >Add Question</button> 
+    <div class="items-center mx-48 mt-5">
+        <button type="button" class=" border-2 w-full mr-64 mx-4 hover:border-green-100  text-center  h-11 bg-white hover:shadow-lg rounded-sm " @click="addNewQuestion(); count++" >Add Question</button> 
     </div>
 
 <div v-if="addFarewall">  
-<div class="flex w-full bg-white m-5 border-2 border-dashed hover:border-blue-50 hover:bg-blue-200 rounded-3xl">
-    <div class=" h-1/4  m-3 bg-white hover:bg-blue-200   flex rounded-3xl w-full ">
+<div class="flex bg-white mx-48  mt-5 ml-52 border-2 hover:border-green-100 hover:shadow-lg rounded-sm">
+    <div class=" h-1/4  m-3 bg-white  flex  w-full ">
         
-                <img class=" w-32 h-32 m-3 rounded-2xl" v-bind:src="img"  alt="Sunset in the mountains" @click="showModal = !showModal">
+                <img class=" w-32 h-32 m-3 rounded-lg hover:shadow-lg" v-bind:src="img"  alt="Sunset in the mountains" @click="showModal = !showModal">
                     <div class="item-center w-full m-4"> 
                         <div>
-                           <textarea v-model="message"  class="w-full hover:shadow-md border-4  py-2 m-4 rounded-3xl text-center" placeholder=" Done!!!" ></textarea>
+                           <textarea v-model="message"  class="w-full hover:shadow-lg border-2  py-2 m-4 rounded-sm text-center" placeholder=" Done!!!" ></textarea>
                         </div>
                         <div class="items-center">
-                            <textarea v-model="message" class="w-full hover:shadow-md border-4  py-10 m-2 rounded-3xl" placeholder=" Thank you for completing the interview, we will contact you shortly. "></textarea>
+                            <textarea v-model="message" class="w-full hover:shadow-lg border-2  py-10 m-2 rounded-sm" placeholder=" Thank you for completing the interview, we will contact you shortly. "></textarea>
                         </div>
                  </div> 
         </div>
@@ -69,18 +74,19 @@
     
 </div>   
  <div v-else>
-    <div class="">
-        <button class="m-5 text-center w-full  h-9 bg-white hover:bg-blue-200  rounded-3xl" @click="addFarewall = !addFarewall">Add Farewell video and Messsage</button>
+    <div class="items-center mx-48 mt-4">
+        <button class=" border-2 w-full  mr-64 mx-4 hover:border-green-100  text-center  h-11 bg-white hover:shadow-lg rounded-sm " @click="addFarewall = !addFarewall">Add Farewell video and Messsage</button>
         <!-- <h1 class=" m-3 text-center  h-9 bg-white hover:bg-blue-200  rounded-3xl" @click="addFarewall= !addFarewall">Add Farewell video and Messsage</h1>  -->
     </div>
  </div>     
-<div class="justify-between flex">
-    <div>
-        <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="dtSave(); onSubmit()">Save and go back</RouterLink>
-        <!-- <button type="button" @click="dtSave()">save</button> -->
-    </div>
+<div class="justify-between flex mx-48 mt-4">
     
-    <button type="button" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="prevInterview = !prevInterview">Preview Interview </button>
+        <RouterLink to="/SetUp" class=" h-9 mb-4 rounded-sm border-2 mx-4 text-center bg-green-50 hover:bg-green-600" @click="dtSave(); onSubmit()">Save and go back</RouterLink>
+        <!-- <RouterLink to="/SetUp" class="rounded-full border-8 border-solid bg-slate-400 hover:bg-blue-200" @click="dtSave(); onSubmit()">Save and go back</RouterLink> -->
+        <!-- <button type="button" @click="dtSave()">save</button> -->
+    
+    
+    <button type="button" class="h-9 mb-4  rounded-sm border-2  bg-green-50 hover:bg-green-600" @click="prevInterview = !prevInterview">Preview Interview </button>
     
     </div>
 
@@ -91,6 +97,7 @@
 
 
  </form>   
+</div>
 </div>
 </template>
 
@@ -127,8 +134,9 @@ const myArray =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'))
 const title =  ref(JSON.parse(localStorage.getItem(STORAGE_KEY2) || '[]'))
 
 
-const arrcount = myArray.value.length;
-console.log(arrcount);
+const qlength = ref();
+qlength.value = myArray.value.length;
+
 // const isReturn = computed(() => tittle === 'Write You title' )
 
 // const isData = computed( 
@@ -154,6 +162,7 @@ function addNewQuestion()  {
 myArray.value.push(obj1);
 
 console.log(myArray.value.length)
+
 
 
 // function getData() {

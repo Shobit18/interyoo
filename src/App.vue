@@ -4,8 +4,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template >
-<div class="w-full">
-        <nav class=" bg-white w-full shadow-lg  flex space-x-10 text-center py-3 ">
+<div class="w-full ">
+        <nav class="  bg-white w-full shadow-lg  flex space-x-10 text-center h-16 ">
           <div class=" flex ">
               <!-- Website Logo -->
               <a href="#" class="flex items-center  py-2 ml-10 w-1/6">

@@ -80,7 +80,6 @@ function stopRecord() {
                             </div>
                             </slot>
                           </div>
-
                           <div class="modal-body mt-16 mx-3 ">
                           <slot>
                           <div class=" space-x-2 rounded-md h-72  w-72 ">

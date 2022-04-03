@@ -12,6 +12,8 @@ const myArray =  ref(JSON.parse(localStorage.getItem('vue_interyoo2') || '[]'))
 const qlength = ref();
 qlength.value = myArray.value.length;
 
+
+
 const activeTab = ref('OpenTab')
 
 const state = reactive({
@@ -25,23 +27,48 @@ const state = reactive({
 </script>
 
 <template>
+<div class="bg-white m-3 rounded-md p-3">
 
-<div class=" items-center mx-48">
-
-    <div class="flex m-5 py-2 border-2 space-x-5 mx-20 w-44 justify-center bg-white rounded-3xl">
-
-        <a class="flex  mx-2"><button class="focus:bg-green-600 rounded" @click="activeTab = 'OpenTab'">Open {{qlength}}</button></a>
-        <a class="flex  mx-2"><button class="focus:bg-green-600 rounded" @click="activeTab = 'ClosedTab'">closed</button></a>
-        
+    <div class=" items-center mx-48">
+    <div class=" justify-between flex mx-20 mb-3 "> 
+    <h1 class="font-bold text-3xl">Position</h1>
+        <div class="flex">
+            <n-input v-model:value="value" type="text" placeholder="Search Postion here" class="w-max mt-3 rounded-r-none"/>
+             
+                <n-select
+                    v-model:value="selectedValue"
+                    filterable
+                    placeholder=""
+                    :options="options"
+                    class="mt-3 w-6  border-l-1 rounded-r-none "
+                    />
+                    <n-select
+                    v-model:value="selectedValue"
+                    filterable
+                    placeholder=""
+                    :options="options"
+                    class="mt-3 w-6 border-l-1 rounded-r-none "
+                    />
+        </div>
     </div>
 
-<OpenTab v-if="activeTab === 'OpenTab'" />
+        <div class="flex   mx-20 justify-between bg-white ">
+           <div class="flex "> 
+            <n-button type="primary" class="text-black activebg-green-100 rounded-r-none h-11" @click="activeTab = 'OpenTab'">Open {{qlength}} </n-button>
+            <n-button type="primary" class="text-black activebg-green-100 rounded-l-none h-11" @click="activeTab = 'ClosedTab'">closed </n-button>
+           </div>
+          <div class="justify-end">
+                Add New Position
+            </div>  
+        </div>
 
-<ClosedTab v-if="activeTab === 'ClosedTab'" /> 
+        <OpenTab v-if="activeTab === 'OpenTab'" />
+
+        <ClosedTab v-if="activeTab === 'ClosedTab'" /> 
 
 
-</div>  
-
+    </div>  
+</div>
 </template>
 
 
